@@ -8,11 +8,11 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #000; /* Fondo negro detrás de todo */
+            background-color: #000;
             color: #fff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
-            overflow-x: hidden; /* Evita scroll lateral */
+            overflow-x: hidden;
         }
 
         .wrap {
@@ -25,7 +25,6 @@
             position: relative;
         }
 
-        /* Título Superior */
         h1.top-title {
             font-size: 1.3rem;
             font-weight: 500;
@@ -33,15 +32,15 @@
             margin-bottom: 0;
             letter-spacing: 0.5px;
             position: relative;
-            z-index: 10; /* Asegura que se vea encima de la foto */
+            z-index: 10;
         }
 
-        /* SECCIÓN DEL PRODUCTO (TU IMAGEN) */
+        /* SECCIÓN DEL PRODUCTO */
         .product {
             width: 100%;
             display: block;
-            position: relative;
-            z-index: 1; /* Nivel base */
+            position: relative; /* Vital para que el logo flote encima */
+            z-index: 1;
         }
 
         .product img {
@@ -50,45 +49,45 @@
             display: block;
         }
 
-        /* --- AQUÍ ESTÁ LA MAGIA DE LA "INVASIÓN" --- */
+        /* --- NUEVO: ESTILO DEL LOGO HD FLOTANTE --- */
+        .top-logo-overlay {
+            position: absolute; /* Lo hace flotar */
+            top: 8%;  /* ↕️ AJUSTE VERTICAL: Cambia este % para subir o bajar el logo */
+            left: 50%;
+            transform: translateX(-50%); /* Lo centra perfecto */
+            width: 50%; /* ↔️ TAMAÑO: Cambia este % para hacerlo más grande o chico */
+            height: auto;
+            z-index: 20; /* Asegura que esté encima de todo */
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.6)); /* Sombra para que resalte */
+        }
+
+        /* FOOTER (Invasión) */
         .footer {
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            
-            /* 1. Fondo TRANSPARENTE para que se vea la foto de atrás */
             background-color: transparent; 
-            
-            /* 2. Margen negativo MUY GRANDE para subir todo el bloque */
-            /* CAMBIA ESTE NÚMERO SI QUIERES SUBIRLO MÁS O MENOS */
-            margin-top: -210px; 
-            
+            margin-top: -210px; /* Margen negativo original */
             padding-bottom: 40px;
             position: relative;
-            
-            /* 3. Z-Index alto para que flote ENCIMA de la imagen */
             z-index: 50; 
         }
 
-        /* LOGO */
         .footer .logo {
-            width: 120px; /* Tamaño un poco más grande para igualar original */
+            width: 120px;
             height: auto;
             margin-bottom: 8px; 
             display: block;
-            /* Sombra suave para que resalte si la foto de fondo es clara en esa parte */
-            
         }
 
-        /* CONTADOR */
         .footer .scan {
             font-size: 1.5rem;
-            color: #ffffff; /* Blanco */
+            color: #ffffff;
             margin-bottom: 8px;
             font-weight: 500;
             line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Sombra para legibilidad */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
         
         .footer .scan span {
@@ -96,7 +95,6 @@
             margin-left: 5px;
         }
 
-        /* TEXTO FINAL */
         .footer .title {
             font-size: 1.1rem;
             color: #fff;
@@ -112,7 +110,11 @@
     <div class="wrap">
 
         <div class="product">
-            <img src="https://i.postimg.cc/0NV5KJy8/PLAGUE-IMAGEN-CONTADOR.jpg" alt="cap">
+            
+            <img src="https://i.postimg.cc/MKZCvZFn/LOGO-DANDY.png" alt="Logo HD">
+
+            <img src="https://i.postimg.cc/52hKqfnw/PLAGUE-IMAGEN-CONTADOR.jpg" alt="cap">
+            
         </div>
 
         <div class="footer">
@@ -121,7 +123,6 @@
             <div class="scan">Scan Count: <span id="visitCount">...</span></div>
             
             <div class="title">Authentic Dandy Product</div>
-
         </div>
 
     </div>
@@ -139,7 +140,6 @@
     </script>
 
 </body>
-
 </html>
 
 
