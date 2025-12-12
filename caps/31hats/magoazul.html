@@ -26,11 +26,11 @@
             position: relative;
         }
 
-        /* SECCIÓN DEL PRODUCTO (CONTENEDOR MAESTRO) */
+        /* SECCIÓN DEL PRODUCTO */
         .product {
             width: 100%;
             display: block;
-            position: relative; /* Esto permite que lo de adentro flote respecto a la imagen */
+            position: relative; 
             z-index: 1;
         }
 
@@ -42,13 +42,8 @@
 
         /* --- ESTILOS DEL FOOTER (FLOTANTE) --- */
         .footer {
-            /* Posición Absoluta: Se pega a la imagen, no al fondo de la página */
             position: absolute;
-            
-            /* 🔴 AJUSTE FINO: Distancia desde abajo */
-            /* Si queda muy arriba o abajo, cambia este 2.5% */
-            bottom: 6%; 
-            
+            bottom: 6%; /* Distancia desde abajo */
             left: 0;
             width: 100%;
             display: flex;
@@ -57,23 +52,19 @@
             z-index: 50; 
         }
 
-        }
-
-        .footer-overlay .title {
-            /* Hacemos la letra un poco más grande */
+        /* 1. TEXTO "Authentic ThirtyOne Product" */
+        /* CORREGIDO: Ahora apunta a .footer .title (antes decía .footer-overlay) */
+        .footer .title {
             font-size: 1.3rem; 
             color: #fff;
-            /* La hacemos más gruesa (negrita) */
-            font-weight: 800;
-            /* Aumentamos el espacio debajo para que no quede pegado */
+            font-weight: 800; /* Negrita fuerte */
             margin-bottom: 12px; 
-            /* Le damos una sombra más fuerte para que resalte del fondo */
             text-shadow: 0 3px 6px rgba(0,0,0,1);
-            letter-spacing: 1px; /* Un poco más de espacio entre letras */
+            letter-spacing: 1px; 
         }
-        /* 2. SELLO DE VERIFICADO (MÁS PEQUEÑO) */
+
+        /* 2. SELLO DE VERIFICADO */
         .footer .check-logo {
-            /* ANTES: 85px -> AHORA: 70px */
             width: 70px; 
             height: auto;
             margin-bottom: 7px; 
@@ -81,9 +72,8 @@
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
         }
 
-        /* 3. CONTADOR (MÁS PEQUEÑO) */
+        /* 3. CONTADOR */
         .footer .scan {
-            /* ANTES: 1.2rem -> AHORA: 1rem */
             font-size: 1rem; 
             color: #ffffff;
             font-weight: 600;
@@ -143,11 +133,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
