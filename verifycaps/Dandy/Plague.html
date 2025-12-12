@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Fondo negro detrás de todo */
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            text-align: center;
+            overflow-x: hidden; /* Evita scroll lateral */
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Título Superior */
+        h1.top-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-top: 30px;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 10; /* Asegura que se vea encima de la foto */
+        }
+
+        /* SECCIÓN DEL PRODUCTO (TU IMAGEN) */
+        .product {
+            width: 100%;
+            display: block;
+            position: relative;
+            z-index: 1; /* Nivel base */
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- AQUÍ ESTÁ LA MAGIA DE LA "INVASIÓN" --- */
+        .footer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            /* 1. Fondo TRANSPARENTE para que se vea la foto de atrás */
+            background-color: transparent; 
+            
+            /* 2. Margen negativo MUY GRANDE para subir todo el bloque */
+            /* CAMBIA ESTE NÚMERO SI QUIERES SUBIRLO MÁS O MENOS */
+            margin-top: -260px; 
+            
+            padding-bottom: 40px;
+            position: relative;
+            
+            /* 3. Z-Index alto para que flote ENCIMA de la imagen */
+            z-index: 50; 
+        }
+
+        /* LOGO */
+        .footer .logo {
+            width: 150px; /* Tamaño un poco más grande para igualar original */
+            height: auto;
+            margin-bottom: 15px; 
+            display: block;
+            /* Sombra suave para que resalte si la foto de fondo es clara en esa parte */
+            
+        }
+
+        /* CONTADOR */
+        .footer .scan {
+            font-size: 1.5rem;
+            color: #ffffff; /* Blanco */
+            margin-bottom: 8px;
+            font-weight: 500;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Sombra para legibilidad */
+        }
+        
+        .footer .scan span {
+            color: #ffffff;
+            margin-left: 5px;
+        }
+
+        /* TEXTO FINAL */
+        .footer .title {
+            font-size: 1.1rem;
+            color: #fff;
+            opacity: 1;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+        <div class="product">
+            <img src="https://i.postimg.cc/28xH7Xkr/PLAGUE-IMAGEN-CONTADOR.jpg" alt="cap">
+        </div>
+
+        <div class="footer">
+            <img class="logo" src="https://i.postimg.cc/CLrGKCPT/Photoshop-Extension-Image-(1).png" alt="logo">
+            
+            <div class="scan">Scan Count: <span id="visitCount">...</span></div>
+            
+            <div class="title">Authentic Dandy Product</div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const pageKey = 'dandy_invasion_v3';
+        let visitCount = localStorage.getItem(pageKey);
+        if (visitCount) {
+            visitCount = parseInt(visitCount) + 1;
+        } else {
+            visitCount = 1;
+        }
+        localStorage.setItem(pageKey, visitCount);
+        document.getElementById('visitCount').innerText = visitCount;
+    </script>
+
+</body>
+</html>
