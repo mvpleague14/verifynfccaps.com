@@ -119,50 +119,17 @@
     </div>
 
     <script>
-        // 1. Clave para guardar el número total (Permanente en el cel del usuario)
         const pageKey = 'contador_31hatsmagoazul'; 
         
-        // 2. Clave para saber si ya sumamos en esta sesión (Temporal, se borra al cerrar la pestaña)
-        const sessionKey = 'ya_sume_esta_visita';
-
-        // Obtenemos el número actual guardado
         let visitCount = localStorage.getItem(pageKey);
-
-        // Verificamos: ¿Ya sumamos puntos en esta pestaña abierta?
-        let yaContado = sessionStorage.getItem(sessionKey);
-
-        if (!yaContado) {
-            // --- CASO: ES UN ESCANEO NUEVO (NUEVA PESTAÑA) ---
-            
-            if (visitCount) {
-                // Si ya existía un número, le sumamos 1
-                visitCount = parseInt(visitCount) + 1;
-            } else {
-                // Si es la primera vez absoluta, empezamos en 1
-                visitCount = 1;
-            }
-
-            // Guardamos el nuevo total permanente
-            localStorage.setItem(pageKey, visitCount);
-
-            // IMPORTANTE: Marcamos esta pestaña como "Ya contada"
-            sessionStorage.setItem(sessionKey, 'true');
-
+        if (visitCount) {
+            visitCount = parseInt(visitCount) + 1;
         } else {
-            // --- CASO: ES UN REFRESH (EL USUARIO RECARGÓ) ---
-            // No hacemos nada (no sumamos). Solo mostramos lo que ya había.
-            if (!visitCount) visitCount = 1;
+            visitCount = 1;
         }
-
-        // Mostrar el número en la pantalla
+        localStorage.setItem(pageKey, visitCount);
         document.getElementById('visitCount').innerText = visitCount;
     </script>
 
 </body>
 </html>
-
-
-
-
-
-
