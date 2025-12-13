@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Authentic ThirtyOne</title>
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000; 
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* SECCIÓN DEL PRODUCTO */
+        .product {
+            width: 100%;
+            display: block;
+            position: relative; 
+            z-index: 1;
+        }
+
+        .product img.bg-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- ESTILOS DEL FOOTER (FLOTANTE) --- */
+        .footer {
+            position: absolute;
+            bottom: 5.5%; /* Distancia desde abajo */
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 50; 
+        }
+
+        /* 1. TEXTO "Authentic ThirtyOne Product" */
+        /* CORREGIDO: Ahora apunta a .footer .title (antes decía .footer-overlay) */
+        .footer .title {
+            font-size: 1.1rem; 
+            color: #fff;
+            font-weight: 800; /* Negrita fuerte */
+            margin-bottom: 10px; 
+            text-shadow: 0 2px 5px rgba(0,0,0,1);
+            letter-spacing: 1px; 
+        }
+
+        /* 2. SELLO DE VERIFICADO */
+        .footer .check-logo {
+            width: 70px; 
+            height: auto;
+            margin-bottom: 7px; 
+            display: block;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+        }
+
+        /* 3. CONTADOR */
+        .footer .scan {
+            font-size: 1rem; 
+            color: #ffffff;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .footer .scan span {
+            margin-left: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+       <div class="product">
+            
+            <a href="https://thirtyonehats.com/" 
+               style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%); width: 35%; z-index: 20; display: block; cursor: pointer;">
+               
+                <img src="https://github.com/mvpleague14/verify/blob/main/imagenes%20gorras/31hatsimagenes/31logometalicobrillante.png?raw=true" 
+                     alt="Logo 31" 
+                     style="width: 100%; height: auto; display: block;">
+            </a>
+
+            <img class="bg-image" 
+                 src="https://github.com/mvpleague14/verify/blob/main/imagenes%20gorras/31hatsimagenes/31hats%20backpackmochila.jpg?raw=true" 
+                 alt="cap background">
+
+            <div class="footer">
+                
+                <div class="title">Authentic ThirtyOne Product</div>
+
+                <img class="check-logo" src="https://github.com/mvpleague14/verify/blob/main/imagenes%20gorras/31hatsimagenes/check31hats.png?raw=true" alt="Verified">
+                
+                <div class="scan">Scan Count: <span id="visitCount">...</span></div>
+                
+            </div>
+                 
+        </div>
+
+    </div>
+
+    <script>
+        const pageKey = 'contador_31hatsforevercristals'; 
+        
+        let visitCount = localStorage.getItem(pageKey);
+        if (visitCount) {
+            visitCount = parseInt(visitCount) + 1;
+        } else {
+            visitCount = 1;
+        }
+        localStorage.setItem(pageKey, visitCount);
+        document.getElementById('visitCount').innerText = visitCount;
+    </script>
+
+</body>
+</html>
+
